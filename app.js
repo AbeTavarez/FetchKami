@@ -1,4 +1,4 @@
-//* Fetch Text From File
+//* Fetch Text Data From Text File
 const fetchText = () => {
     fetch('text.txt')
         .then(res => {
@@ -11,7 +11,39 @@ const fetchText = () => {
         .catch(err => {
             console.log(err);
         })
-}
+};
 
-const btn1 = document.getElementById('btn1');
-btn1.addEventListener('click', fetchText);
+//* Fetch JSON Data From JSON File
+const fetchJSON = () => {
+    fetch('post.json')
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            let output = '';
+
+            data.forEach(post => {
+                output += `<li>${post.title}</li>`
+            });
+            document.getElementById('root').innerHTML = output;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+};
+
+
+
+
+
+
+
+
+
+//* ========================== Event Listeners
+const textBtn = document.getElementById('btn1');
+textBtn.addEventListener('click', fetchText);
+
+const jsonBtn = document.getElementById('btn2');
+jsonBtn.addEventListener('click', fetchJSON)
