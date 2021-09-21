@@ -33,6 +33,26 @@ const fetchJSON = () => {
         })
 };
 
+//* Fetch API Data From External API
+const fetchAPI = () => {
+    fetch('https://api.github.com/users')
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            let output = '';
+
+            data.forEach(user => {
+                output += `<li>${user.login}</li>`
+            });
+            document.getElementById('root').innerHTML = output;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+};
+
 
 
 
@@ -46,4 +66,7 @@ const textBtn = document.getElementById('btn1');
 textBtn.addEventListener('click', fetchText);
 
 const jsonBtn = document.getElementById('btn2');
-jsonBtn.addEventListener('click', fetchJSON)
+jsonBtn.addEventListener('click', fetchJSON);
+
+const apiBtn = document.getElementById('btn3');
+apiBtn.addEventListener('click', fetchAPI);
