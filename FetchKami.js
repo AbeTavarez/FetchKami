@@ -12,6 +12,7 @@
 class FetchKami {
     //* === Make an HTTP GET
     get(url) {
+        // returns a new Promise
         return new Promise((resolve, reject) => {
         fetch(url) //fetch returns a promise
         .then(res => res.json()) // mapped it to json
