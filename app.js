@@ -1,24 +1,19 @@
+
 //* Fetch Text Data From Text File
 const fetchText = () => {
     fetch('text.txt')
-        .then(res => {
-            return res.text();
-        })
+        .then(res => res.text())
         .then(data => {
             console.log(data);
             document.getElementById('root').innerText = data
         })
-        .catch(err => {
-            console.log(err);
-        })
+        .catch(err => console.log(err))
 };
 
 //* Fetch JSON Data From JSON File
 const fetchJSON = () => {
     fetch('post.json')
-        .then(res => {
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
             console.log(data);
             let output = '';
@@ -28,17 +23,13 @@ const fetchJSON = () => {
             });
             document.getElementById('root').innerHTML = output;
         })
-        .catch(err => {
-            console.log(err);
-        })
+        .catch(err => console.log(err))
 };
 
 //* Fetch API Data From External API
 const fetchAPI = () => {
     fetch('https://api.github.com/users')
-        .then(res => {
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
             console.log(data);
             let output = '';
@@ -48,9 +39,7 @@ const fetchAPI = () => {
             });
             document.getElementById('root').innerHTML = output;
         })
-        .catch(err => {
-            console.log(err);
-        })
+        .catch(err => console.log(err))
 };
 
 
